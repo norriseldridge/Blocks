@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Exo+2');
+
+body {
+    background-color: black;
+    text-align: center;
+    font-family: 'Exo 2', sans-serif;
+}
+
+h1 {
+    color: white;
+    font-size: 48pt;
+    padding: 0;
+    margin: 0;
+}
+
+canvas {
+    width: 70%;
+    background: radial-gradient(rgba(120, 120, 120, 0.5), rgba(60, 60, 60, 0.6), rgba(0, 0, 0, 0.85));
+    animation: rotateBackground 12s infinite ease-out;
+}
+
+@keyframes rotateBackground {
+    0%   {background-color: red;}
+    20%  {background-color: yellow;}
+    40%  {background-color: blue;}
+    60%  {background-color: green;}
+    80%  {background-color: black;}
+    100% {background-color: red;}
+}

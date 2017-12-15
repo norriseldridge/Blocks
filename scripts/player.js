@@ -1,0 +1,68 @@
+function Player() {
+    this.sprite = new Sprite({
+        img: "assets/images/player.png",
+        x: 0,
+        y: 0,
+        width: 50,
+        height: 50
+    });
+    
+    this.oldPos = {
+        x: 0,
+        y: 0
+    };
+    
+    this.direction = 0;
+    this.speed = 1.1;
+    this.gravity = 2;
+}
+
+Player.prototype.RotateDirection = function (dir) {
+    this.direction += dir;
+    
+    if (this.direction < 0) {
+        this.direction = 3;
+    }
+    
+    if (this.direction > 3) {
+        this.direction = 0;
+    }
+};
+
+Player.prototype.HandleCollision = function(sprites) {
+    var self = this;
+    sprites.forEach(function (sprite) {
+        if (CheckCollision(self.sprite, sprite)) {
+            var cv = GetCollisionNormal(self.sprite, sprite);
+            
+            if (cv.x != 0) {
+                self.sprite.x = self.oldPos.x;
+            }
+            
+            if (cv.y != 0) {
+                self.sprite.y = self.oldPos.y;
+            }
+        }
+    });
+};
+
+Player.prototype.Update = function (sprites) {   
+    this.HandleCollision(sprites);
+    this.oldPos.x = this.sprite.x;
+    this.oldPos.y = this.sprite.y;
+    
+    switch (this.direction) {
+        case 0:
+            this.sprite.y += this.gravity;
+            break;
+        case 1:
+            this.sprite.x += this.gravity;
+            break;
+        case 2:
+            this.sprite.y -= this.gravity;
+            break;
+        case 3:
+            this.sprite.x -= this.gravity;
+            break;
+    }
+};
