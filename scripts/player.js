@@ -51,18 +51,30 @@ Player.prototype.Update = function (sprites) {
     this.oldPos.x = this.sprite.x;
     this.oldPos.y = this.sprite.y;
     
-    switch (this.direction) {
-        case 0:
-            this.sprite.y += this.gravity;
-            break;
-        case 1:
-            this.sprite.x += this.gravity;
-            break;
-        case 2:
-            this.sprite.y -= this.gravity;
-            break;
-        case 3:
-            this.sprite.x -= this.gravity;
-            break;
+    if (gravityOn) {
+        if (this.gravity < 2) {
+            this.gravity += 0.005;
+        }
+        else {
+            this.gravity = 2;
+        }
+        
+        switch (this.direction) {
+            case 0:
+                this.sprite.y += this.gravity;
+                break;
+            case 1:
+                this.sprite.x += this.gravity;
+                break;
+            case 2:
+                this.sprite.y -= this.gravity;
+                break;
+            case 3:
+                this.sprite.x -= this.gravity;
+                break;
+        }
+    }
+    else {
+        this.gravity = 0;
     }
 };

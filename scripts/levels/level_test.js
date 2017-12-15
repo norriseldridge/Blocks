@@ -1,6 +1,9 @@
 var testLevel = new Level();
 
 testLevel.Initialize = function () {
+    // set next level
+    this.nextLevel = level1;
+    
     // position player
     player.sprite.x = 0;
     player.sprite.y = 0;

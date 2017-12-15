@@ -20,7 +20,7 @@ function Sprite(spriteData) {
 Sprite.prototype.Draw = function () {
     ctx.save();
     // position
-    ctx.translate(this.x - Camera.x, this.y - Camera.y);
+    ctx.translate(this.x - Camera.x + Camera.offsetX, this.y - Camera.y + Camera.offsetY);
     
     // alpha
     ctx.globalAlpha = this.alpha;

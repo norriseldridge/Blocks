@@ -8,6 +8,8 @@ var fps = 60;
 
 // game vars
 var player;
+var gravity = 0;
+var gravityOn = true;
 var levelManager = {
     current: undefined,
     newLevel: false

@@ -14,9 +14,15 @@ h1 {
 }
 
 canvas {
-    width: 70%;
+    width: 100%;
+    cursor: none;
     background: radial-gradient(rgba(120, 120, 120, 0.5), rgba(60, 60, 60, 0.6), rgba(0, 0, 0, 0.85));
     animation: rotateBackground 12s infinite ease-out;
+    transition: all 2s ease;
+}
+
+.crop {
+    overflow: hidden;
 }
 
 @keyframes rotateBackground {
@@ -26,4 +32,12 @@ canvas {
     60%  {background-color: green;}
     80%  {background-color: black;}
     100% {background-color: red;}
+}
+
+.stopped {
+    animation: none;
+    background: none;
+    background-color: white;
+    transform: scale(4);
+    filter: blur(5px) brightness(500%);
 }

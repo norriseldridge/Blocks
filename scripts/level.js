@@ -28,9 +28,12 @@ function UpdateLevel(level) {
     if (distance({x: player.sprite.x, y: player.sprite.y}, 
                  {x: level.goal.x, y: level.goal.y}) < 20) {
         level.active = false;
+        canvas.classList.add('stopped');
+        Camera.Shake(5);
         setTimeout(function () {
             // next level
             SetNextLevel(level.nextLevel);
+            canvas.classList.remove('stopped');
         }, 500);
         
         // clean up
