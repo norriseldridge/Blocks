@@ -3,8 +3,8 @@ function Player() {
         img: "assets/images/player.png",
         x: 0,
         y: 0,
-        width: 50,
-        height: 50
+        width: 30,
+        height: 30
     });
     
     this.oldPos = {

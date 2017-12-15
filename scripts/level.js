@@ -26,7 +26,7 @@ function UpdateLevel(level) {
     
     // check for the win
     if (distance({x: player.sprite.x, y: player.sprite.y}, 
-                 {x: this.goal.x, y: this.goal.y}) < 20) {
+                 {x: level.goal.x, y: level.goal.y}) < 20) {
         level.active = false;
         setTimeout(function () {
             // next level
