@@ -6,7 +6,7 @@ MainState.Initialize = function () {
     player = new Player();
     RegisterSpriteToHandler(player.sprite);
     
-    SetNextLevel(testLevel);
+    SetNextLevel(level1);
     this.level = levelManager.current;
     this.level.Initialize();
 };
@@ -22,6 +22,12 @@ MainState.Update = function () {
     Camera.x = player.sprite.x;
     Camera.y = player.sprite.y;
     player.Update(this.level.tiles);
+    
+    // reset?
+    if (input["r"]) {
+        levelManager.newLevel = true;
+        this.level.CleanUp();
+    }
     
     // level update
     if (levelManager.newLevel) {
@@ -42,4 +48,12 @@ MainState.Update = function () {
     
     ctx.rotate(-Camera.rotation);
     ctx.translate(-camX, -camY);
+    
+    // reset?
+    if (this.level.promptReset) {
+        ctx.fillStyle = 'white';
+        ctx.font = '40px Times New Roman';
+        ctx.textAlign = 'center';
+        ctx.fillText("\'r\' to reset...", canvas.width / 2, canvas.height / 2 - 50);
+    }
 };

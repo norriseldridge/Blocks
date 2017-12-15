@@ -5,10 +5,35 @@ level1.Initialize = function () {
     player.sprite.x = 0;
     player.sprite.y = 0;
     levelManager.newLevel = false;
-    Camera.rotation = 0;
-    player.direction = 0;
+    Camera.rotation = Math.PI;
+    player.direction = 2;
     
     // build level here
+    this.tiles.push(CreateTile(0, -50));
+    
+    for (var i = 0; i < 10; ++i) {
+        var temp = CreateTile(-50, i * 50);
+        this.tiles.push(temp);
+    }
+    
+    for (var i = 0; i < 10; ++i) {
+        var temp = CreateTile(50, i * 50);
+        this.tiles.push(temp);
+    }
+    
+    for (var i = 0; i < 3; ++i) {
+        var temp = CreateTile(-50 + i * 50, 550);
+        this.tiles.push(temp);
+    }
+    
+    for (var i = 0; i < 3; ++i) {
+        var temp = CreateTile(-200, 550 - i * 50);
+        this.tiles.push(temp);
+    }
+    
+    // goal
+    this.goal = CreateGoal(0, -100);
+    
 };
 
 level1.Update = function () {
