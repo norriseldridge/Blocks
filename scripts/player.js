@@ -4,7 +4,8 @@ function Player() {
         x: 0,
         y: 0,
         width: 30,
-        height: 30
+        height: 30,
+        zIndex: 0
     });
     
     this.oldPos = {
@@ -13,8 +14,8 @@ function Player() {
     };
     
     this.direction = 0;
-    this.speed = 1.1;
     this.gravity = 2;
+    this.isDead = false;
 }
 
 Player.prototype.RotateDirection = function (dir) {

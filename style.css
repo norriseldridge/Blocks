@@ -1,9 +1,12 @@
-@import url('https://fonts.googleapis.com/css?family=Exo+2');
+@font-face {
+    font-family: Exo;
+    src: url("assets/fonts/Exo2-Regular.ttf");
+}
 
 body {
     background-color: black;
     text-align: center;
-    font-family: 'Exo 2', sans-serif;
+    font-family: 'Exo', sans-serif;
 }
 
 h1 {
@@ -11,13 +14,18 @@ h1 {
     font-size: 48pt;
     padding: 0;
     margin: 0;
+    height: 100px;
+}
+
+.gameContainer {
+    height: calc(100vh - 120px);
 }
 
 canvas {
     width: 100%;
     cursor: none;
     background: radial-gradient(rgba(120, 120, 120, 0.5), rgba(60, 60, 60, 0.6), rgba(0, 0, 0, 0.85));
-    animation: rotateBackground 12s infinite ease-out;
+    animation: rotateBackground 20s infinite ease-out;
     transition: all 2s ease;
 }
 
@@ -39,5 +47,5 @@ canvas {
     background: none;
     background-color: white;
     transform: scale(4);
-    filter: blur(5px) brightness(500%);
+    filter: blur(10px) brightness(1500%);
 }

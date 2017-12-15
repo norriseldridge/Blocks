@@ -7,40 +7,32 @@ testLevel.Initialize = function () {
     // position player
     player.sprite.x = 0;
     player.sprite.y = 0;
-    levelManager.newLevel = false;
     Camera.rotation = Math.PI;
     player.direction = 2;
+    InitializeLevel(this);
     
     // temp map
-    for (var i = 0; i < 10; ++i) {
-        var temp = new Sprite({
-            img: "assets/images/tile.png",
-            x: i * 50,
-            y: -50,
-            width: 50,
-            height: 50,
-            zIndex: 1
-        });
+    for (var i = 0; i < 6; ++i) {
+        var temp = CreateTile(i * 50, -50);
         this.tiles.push(temp);
-        RegisterSpriteToHandler(temp);
     }
     
-    for (var i = 0; i < 10; ++i) {
+    for (var i = 0; i < 6; ++i) {
         var temp = CreateTile(-50, i * 50);
         this.tiles.push(temp);
     }
     
-    for (var i = 0; i < 10; ++i) {
+    for (var i = 0; i < 5; ++i) {
         var temp = CreateTile(i * 50, 500);
         this.tiles.push(temp);
     }
     
-    for (var i = 0; i < 10; ++i) {
-        var temp = CreateTile(500, i * 50);
+    for (var i = 0; i < 7; ++i) {
+        var temp = CreateTile(300, i * 50);
         this.tiles.push(temp);
     }
     
-    for (var i = 0; i < 5; ++i) {
+    for (var i = 0; i < 8; ++i) {
         var temp = CreateTile(50, i * 50);
         this.tiles.push(temp);
     }
@@ -50,14 +42,19 @@ testLevel.Initialize = function () {
         this.tiles.push(temp);
     }
     
-    for (var i = 0; i < 5; ++i) {
-        var temp = CreateTile(200 + i * 50, 50);
-        this.tiles.push(temp);
-    }
-    
     for (var i = 0; i < 3; ++i) {
         var temp = CreateTile(50 + i * 50, 250);
         this.tiles.push(temp);
+    }
+    
+    for (var i = 0; i < 4; ++i) {
+        this.deathTiles.push(CreateDeathTile(250, i * 50));
+        this.deathTiles.push(CreateDeathTile(200, i * 50));
+    }
+    
+    for (var i = 0; i < 4; ++i) {
+        this.deathTiles.push(CreateDeathTile(-100 - i * 50, 300 + i * 50));
+        this.deathTiles.push(CreateDeathTile(-100 - i * 50, i * 50));
     }
     
     this.goal = CreateGoal(100, 0);

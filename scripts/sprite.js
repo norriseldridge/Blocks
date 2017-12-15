@@ -16,21 +16,27 @@ function Sprite(spriteData) {
     this.rotation = (spriteData.rotation == undefined) ? 0 : spriteData.rotation;
     this.alpha = (spriteData.alpha == undefined) ? 1 : spriteData.alpha;
     this.zIndex = (spriteData.zIndex == undefined) ? 0 : spriteData.zIndex;
+    this.collisionEnabled = (spriteData.collisionEnabled == undefined) ? true : spriteData.collisionEnabled;
 }
 Sprite.prototype.Draw = function () {
-    ctx.save();
-    // position
-    ctx.translate(this.x - Camera.x + Camera.offsetX, this.y - Camera.y + Camera.offsetY);
-    
-    // alpha
-    ctx.globalAlpha = this.alpha;
-    
-    // rotation
-    ctx.rotate(this.rotation);
-    
-    // do the draw
-    ctx.drawImage(this.img, this.offset.x, this.offset.y, this.width, this.height);
-    ctx.restore();
+    try {
+        ctx.save();
+        // position
+        ctx.translate(this.x - Camera.x + Camera.offsetX, this.y - Camera.y + Camera.offsetY);
+
+        // alpha
+        ctx.globalAlpha = this.alpha;
+
+        // rotation
+        ctx.rotate(this.rotation);
+
+        // do the draw
+        ctx.drawImage(this.img, this.offset.x, this.offset.y, this.width, this.height);
+        ctx.restore();
+    }
+    catch (ex) {
+        
+    }
 };
 
 
@@ -77,6 +83,10 @@ function RemoveAllSprites() {
 }
 
 function CheckCollision(rect1, rect2) {
+    if (rect1.collisionEnabled == false || rect2.collisionEnabled == false) {
+        return false;
+    }
+    
     if (rect1.x + rect1.offset.x < rect2.x + rect2.width + rect2.offset.x &&
           rect1.x + rect1.offset.x + rect1.width > rect2.x + rect2.offset.x &&
           rect1.y + rect1.offset.y < rect2.y + rect2.height + rect2.offset.y &&

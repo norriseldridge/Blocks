@@ -4,9 +4,11 @@ level1.Initialize = function () {
     // position player
     player.sprite.x = 0;
     player.sprite.y = 0;
-    levelManager.newLevel = false;
     Camera.rotation = Math.PI;
     player.direction = 2;
+    this.nextLevel = level2;
+    this.missionPrompt = "Use \'a\' and \'d\' to rotate\nGet to the portal";
+    InitializeLevel(this);
     
     // build level here
     this.tiles.push(CreateTile(0, -50));

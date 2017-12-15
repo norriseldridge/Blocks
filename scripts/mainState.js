@@ -25,16 +25,14 @@ MainState.Update = function () {
     
     // reset?
     if (input["r"]) {
+        ClearProjectiles();
         levelManager.newLevel = true;
+        player.isDead = false;
         this.level.CleanUp();
     }
     
-    // level update
-    if (levelManager.newLevel) {
-        this.level = levelManager.current;
-        this.level.Initialize();
-    }
-    this.level.Update();
+    // projectiles
+    UpdateProjectiles();
     
     // handle drawing
     // clear first
@@ -49,11 +47,15 @@ MainState.Update = function () {
     ctx.rotate(-Camera.rotation);
     ctx.translate(-camX, -camY);
     
+    // level update
+    if (levelManager.newLevel) {
+        this.level = levelManager.current;
+        this.level.Initialize();
+    }
+    this.level.Update();
+    
     // reset?
-    if (this.level.promptReset) {
-        ctx.fillStyle = 'white';
-        ctx.font = '40px Times New Roman';
-        ctx.textAlign = 'center';
-        ctx.fillText("\'r\' to reset...", canvas.width / 2, canvas.height / 2 - 50);
+    if (this.level.promptReset || player.isDead) {
+        DrawText(resetPrompt, canvas.width / 2, canvas.height / 2 - 50);
     }
 };

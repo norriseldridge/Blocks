@@ -6,8 +6,8 @@ var Camera = {
     rotation: 0
 };
 
-Camera.Shake = function (violence) {
-    for (var i = 0; i < 50; ++i) {
+Camera.Shake = function (violence, count) {
+    for (var i = 0; i < count; ++i) {
         setTimeout(function () {
             Camera.offsetX = violence - (Math.random() * 2 * violence);
             Camera.offsetY = violence - (Math.random() * 2 * violence);
@@ -16,5 +16,5 @@ Camera.Shake = function (violence) {
     setTimeout(function () {
         Camera.offsetX = 0;
         Camera.offsetY = 0;
-    }, 600);
+    }, count * 10);
 };
