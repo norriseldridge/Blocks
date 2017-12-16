@@ -7,8 +7,8 @@ function Projectile(spriteData, vel) {
 }
 
 Projectile.prototype.Update = function () {
-    this.sprite.x += this.vel.x;
-    this.sprite.y += this.vel.y;
+    this.sprite.x += this.vel.x * gameSpeed;
+    this.sprite.y += this.vel.y * gameSpeed;
 }
 
 function CreateProjectile(sprite, vel) {

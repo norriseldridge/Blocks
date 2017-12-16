@@ -6,7 +6,7 @@ level2.Initialize = function () {
     player.sprite.y = 50;
     Camera.rotation = Math.PI / 2;
     player.direction = 1;
-    this.nextLevel = testLevel;
+    this.nextLevel = level3;
     this.missionPrompt = "Don\'t touch red";
     InitializeLevel(this);
     

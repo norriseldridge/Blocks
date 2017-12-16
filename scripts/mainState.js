@@ -6,7 +6,7 @@ MainState.Initialize = function () {
     player = new Player();
     RegisterSpriteToHandler(player.sprite);
     
-    SetNextLevel(level1);
+    SetNextLevel(level4);
     this.level = levelManager.current;
     this.level.Initialize();
 };
@@ -25,10 +25,12 @@ MainState.Update = function () {
     
     // reset?
     if (input["r"]) {
-        ClearProjectiles();
-        levelManager.newLevel = true;
-        player.isDead = false;
-        this.level.CleanUp();
+        FadeWhiteShake(function (self) {
+            ClearProjectiles();
+            levelManager.newLevel = true;
+            player.isDead = false;
+            self.level.CleanUp();
+        }, this);
     }
     
     // projectiles

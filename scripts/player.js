@@ -62,16 +62,16 @@ Player.prototype.Update = function (sprites) {
         
         switch (this.direction) {
             case 0:
-                this.sprite.y += this.gravity;
+                this.sprite.y += this.gravity * gameSpeed;
                 break;
             case 1:
-                this.sprite.x += this.gravity;
+                this.sprite.x += this.gravity * gameSpeed;
                 break;
             case 2:
-                this.sprite.y -= this.gravity;
+                this.sprite.y -= this.gravity * gameSpeed;
                 break;
             case 3:
-                this.sprite.x -= this.gravity;
+                this.sprite.x -= this.gravity * gameSpeed;
                 break;
         }
     }

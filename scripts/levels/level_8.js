@@ -1,6 +1,6 @@
-var testLevel = new Level();
+var level8 = new Level();
 
-testLevel.Initialize = function () {
+level8.Initialize = function () {
     // set next level
     this.nextLevel = level1;
     
@@ -16,10 +16,10 @@ testLevel.Initialize = function () {
     this.goal = CreateGoal(0, -1000);
 };
 
-testLevel.Update = function () {
+level8.Update = function () {
     UpdateLevel(this);
 };
 
-testLevel.CleanUp = function () {
+level8.CleanUp = function () {
     CleanUpLevel(this);
 };

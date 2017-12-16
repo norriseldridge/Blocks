@@ -23,7 +23,7 @@ h1 {
 
 canvas {
     width: 100%;
-    cursor: none;
+    /*cursor: none;*/
     background: radial-gradient(rgba(120, 120, 120, 0.5), rgba(60, 60, 60, 0.6), rgba(0, 0, 0, 0.85));
     animation: rotateBackground 20s infinite ease-out;
     transition: all 2s ease;
@@ -47,5 +47,9 @@ canvas {
     background: none;
     background-color: white;
     transform: scale(4);
-    filter: blur(10px) brightness(1500%);
+    filter: blur(20px) brightness(1500%);
+}
+
+.grayscaled {
+    filter: grayscale(90%);
 }

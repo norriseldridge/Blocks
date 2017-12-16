@@ -34,7 +34,7 @@ level1.Initialize = function () {
     }
     
     // goal
-    this.goal = CreateGoal(0, -100);
+    this.goal = CreateGoal(-150, -100);
     
 };
 

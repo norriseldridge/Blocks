@@ -8,6 +8,7 @@ var fps = 60;
 var resetPrompt = "\'r\' to reset...";
 
 // game vars
+var gameSpeed = 1;
 var player;
 var gravity = 0;
 var gravityOn = true;
@@ -24,6 +25,36 @@ function SetNextLevel(level) {
 function ClearTimeouts() {
     while (timeOuts.length > 0) {
         clearTimeout(timeOuts.pop());
+    }
+}
+
+function RotateWorld(direction) {
+    var delay = 3;
+    
+    if (direction == "left") {
+        gravityOn = false;
+        for (var i = 0; i < 90; ++i) {
+            timeOuts.push(setTimeout(function (i) {
+                Camera.rotation -= Math.PI / 180;
+            }, i * delay, i));
+        }
+        timeOuts.push(setTimeout(function () {
+            player.RotateDirection(-1);
+            gravityOn = true;
+        }, 90 * delay));
+    }
+    
+    if (direction == "right") {
+        gravityOn = false;
+        for (var i = 0; i < 90; ++i) {
+            timeOuts.push(setTimeout(function (i) {
+                Camera.rotation += Math.PI / 180;
+            }, i * delay, i));
+        }
+        timeOuts.push(setTimeout(function () {
+            player.RotateDirection(1);
+            gravityOn = true;
+        }, 90 * delay));
     }
 }
 
