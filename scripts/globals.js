@@ -4,13 +4,16 @@ var ctx;
 var timeOuts = [];
 
 // game constants
-var fps = 60;
+var gameName = "blocks";
+var fps = 24;
 var resetPrompt = "\'r\' to reset...";
 
 // game vars
 var gameSpeed = 1;
 var player;
 var gravity = 0;
+var maxGravity = 3.5;
+var gravityAcceleration = 0.01;
 var gravityOn = true;
 var levelManager = {
     current: undefined,
@@ -65,9 +68,10 @@ function distance(pos1, pos2) {
     return Math.sqrt((dx * dx) + (dy * dy));
 }
 
-function DrawText(text, x, y) {
+function DrawText(text, x, y, fontSize) {
     ctx.fillStyle = 'white';
-    ctx.font = '40px Exo';
+    var size = (fontSize == undefined) ? 40 : fontSize;
+    ctx.font = size + 'px Exo';
     ctx.textAlign = 'center';
     
     var lines = text.split('\n');

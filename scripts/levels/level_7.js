@@ -12,10 +12,10 @@ level7.Initialize = function () {
     InitializeLevel(this);
     
     for (var i = 0; i < 4; ++i) {
-        var temp = CreateDeathTile(-50, i * 200);
+        var temp = CreateDeathTile(-190, i * 200);
         this.deathTiles.push(temp);
         
-        temp = CreateDeathTile(50, 50 + i * 200);
+        temp = CreateDeathTile(190, 50 + i * 200);
         this.deathTiles.push(temp);
     }
     
@@ -36,19 +36,19 @@ level7.Initialize = function () {
     
     // custom variable
     this.moveDirection = "left";
-    this.moveTimer = 300;
+    this.moveTimer = 600;
 };
 
 level7.Update = function () {
     UpdateLevel(this);
     
-    this.moveTimer--;
+    this.moveTimer-= 1 / gameSpeed;
     
     if (this.moveTimer <= 0) {
         this.moveDirection = (this.moveDirection == "left") ? "right" : "left";
-        this.moveTimer = 300;
+        this.moveTimer = 600;
     }
-    var amount = (this.moveDirection == "left") ? -0.6 : 0.6;
+    var amount = ((this.moveDirection == "left") ? -0.5 : 0.5) * gameSpeed;
     var index = 0;
     this.deathTiles.forEach(function (tile) {
         if (index % 2 == 0) {

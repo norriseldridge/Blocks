@@ -23,14 +23,18 @@
         
         <script src="scripts/stateMachine.js"></script>
         <script src="scripts/mainState.js"></script>
+        <script src="scripts/menuState.js"></script>
         <script src="scripts/main.js"></script>
     </head>
     
     <body onload="OnLoad()">
-        <h1>Blocks</h1>
         <div class="crop">
             <div class="gameContainer">
                 <canvas id="gc" width="800" height="480"></canvas>
+            </div>
+            <div class="controls hidden">
+                <img class="arrow" id="rotateLeft" onclick="RotateWorld('left')" src="assets/images/arrow.png">
+                <img class="arrow" id="rotateRight" onclick="RotateWorld('right')" src="assets/images/arrow.png">
             </div>
         </div>
     </body>

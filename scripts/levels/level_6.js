@@ -9,7 +9,7 @@ level6.Initialize = function () {
     player.sprite.y = -200;
     Camera.rotation = Math.PI;
     player.direction = 2;
-    this.missionPrompt = "Uh... srysly?";
+    this.missionPrompt = "Uh... srsly?";
     InitializeLevel(this);
     
     // temp map
@@ -67,13 +67,13 @@ level6.Initialize = function () {
 level6.Update = function () {
     UpdateLevel(this);
     
-    this.moveTimer--;
+    this.moveTimer-= 1 / gameSpeed;
     
     if (this.moveTimer <= 0) {
         this.moveDirection = (this.moveDirection == "left") ? "right" : "left";
         this.moveTimer = 100;
     }
-    var amount = (this.moveDirection == "left") ? -1 : 1;
+    var amount = ((this.moveDirection == "left") ? -1 : 1) * gameSpeed;
     this.deathTiles.forEach(function (tile) {
         tile.x += amount;
     });

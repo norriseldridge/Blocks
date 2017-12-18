@@ -14,7 +14,7 @@ function Player() {
     };
     
     this.direction = 0;
-    this.gravity = 2;
+    this.gravity = maxGravity;
     this.isDead = false;
 }
 
@@ -53,11 +53,11 @@ Player.prototype.Update = function (sprites) {
     this.oldPos.y = this.sprite.y;
     
     if (gravityOn) {
-        if (this.gravity < 2) {
-            this.gravity += 0.005;
+        if (this.gravity < maxGravity) {
+            this.gravity += gravityAcceleration;
         }
         else {
-            this.gravity = 2;
+            this.gravity = maxGravity;
         }
         
         switch (this.direction) {

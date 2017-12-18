@@ -95,7 +95,7 @@ function UpdateLevel(level) {
                      {x: coin.sprite.x, y: coin.sprite.y}) < 20) {
                 coin.active = false;
                 coin.sprite.alpha = 0;
-                CreateExplosion("assets/images/coin.png", 5, 2, coin.sprite.x, coin.sprite.y);
+                CreateExplosion("assets/images/coin.png", 15, 8, coin.sprite.x, coin.sprite.y);
             }
         }
     });
