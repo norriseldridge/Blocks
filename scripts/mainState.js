@@ -6,7 +6,7 @@ MainState.Initialize = function () {
     player = new Player();
     RegisterSpriteToHandler(player.sprite);
     
-    SetNextLevel(level1);
+    SetNextLevel(testLevel);
     this.level = levelManager.current;
     this.level.Initialize();
 };

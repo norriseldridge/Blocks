@@ -48,6 +48,7 @@ h1 {
 
 canvas {
     height: 100%;
+    margin: auto;
     cursor: none;
     background: radial-gradient(rgba(120, 120, 120, 0.5), rgba(60, 60, 60, 0.6), rgba(0, 0, 0, 0.85));
     animation: rotateBackground 20s infinite ease-out;
@@ -71,12 +72,28 @@ canvas {
     100% {background-color: red;}
 }
 
+.menued {
+    background: none;
+    background-color: white;
+    filter: blur(2px) brightness(150%);
+    animation: fadeInMenu 5s ease-out;
+}
+
+@keyframes fadeInMenu {
+    0% {
+        filter: blur(10px) brightness(300%);
+    }
+    100% {
+        filter: blur(2px) brightness(150%);
+    }
+}
+
 .stopped {
     animation: none;
     background: none;
     background-color: white;
     transform: scale(4);
-    filter: blur(20px) brightness(1500%);
+    filter: blur(30px) brightness(5000%);
 }
 
 .grayscaled {

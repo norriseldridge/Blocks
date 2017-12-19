@@ -1,6 +1,7 @@
 function Level() {
     this.tiles = [];
     this.deathTiles = [];
+    this.switches = [];
     this.active = true;
     this.nextLevel = this; // default is just restart the level
     this.promptReset = false;
@@ -62,6 +63,13 @@ function CreateGoal(x, y) {
 
 function CreateCoin(x, y) {
     var temp = new Coin(x, y);
+    RegisterSpriteToHandler(temp.sprite);
+    return temp;
+}
+
+function CreateSwitch(x, y, target) {
+    var temp = new Switch(x, y);
+    temp.target = target;
     RegisterSpriteToHandler(temp.sprite);
     return temp;
 }
@@ -134,6 +142,11 @@ function UpdateLevel(level) {
         });
     }
     
+    // check for switches
+    level.switches.forEach(function (s) {
+        s.Update();
+    });
+    
     // check for the win
     if (distance({x: player.sprite.x, y: player.sprite.y}, 
                  {x: level.goal.x, y: level.goal.y}) < 20) {
@@ -195,6 +208,11 @@ function CleanUpLevel(level) {
         RemoveSpriteFromHandler(tile);
     });
     level.deathTiles = [];
+    
+    level.switches.forEach(function (s) {
+        RemoveSpriteFromHandler(s.sprite);
+    });
+    level.switches = [];
     
     level.coins.forEach(function (coin) {
         RemoveSpriteFromHandler(coin.sprite);

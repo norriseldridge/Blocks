@@ -14,7 +14,7 @@ function Player() {
     };
     
     this.direction = 0;
-    this.gravity = maxGravity;
+    this.gravity = 0;
     this.isDead = false;
 }
 
@@ -42,6 +42,13 @@ Player.prototype.HandleCollision = function(sprites) {
             
             if (cv.y != 0) {
                 self.sprite.y = self.oldPos.y;
+            }
+            
+            if (self.gravity >= maxGravity * 0.25) {
+                self.gravity *= -0.1;
+            }
+            else {
+                self.gravity = -gravityAcceleration * gameSpeed;
             }
         }
     });

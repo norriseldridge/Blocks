@@ -9,6 +9,7 @@
         <script src="scripts/explosion.js"></script>
         <script src="scripts/player.js"></script>
         <script src="scripts/coin.js"></script>
+        <script src="scripts/switch.js"></script>
         <script src="scripts/level.js"></script>
         <!-- include my levels -->
         <script src="scripts/levels/level_test.js"></script>
@@ -28,9 +29,9 @@
     </head>
     
     <body onload="OnLoad()">
-        <div class="crop">
-            <div class="gameContainer">
-                <canvas id="gc" width="800" height="480"></canvas>
+        <div class="gameContainer">
+            <div class="crop">
+                <canvas class="menued" id="gc" width="800" height="480"></canvas>
             </div>
             <div class="controls hidden">
                 <img class="arrow" id="rotateLeft" onclick="RotateWorld('left')" src="assets/images/arrow.png">

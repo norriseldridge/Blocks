@@ -12,7 +12,7 @@ var resetPrompt = "\'r\' to reset...";
 var gameSpeed = 1;
 var player;
 var gravity = 0;
-var maxGravity = 3.5;
+var maxGravity = 3;
 var gravityAcceleration = 0.01;
 var gravityOn = true;
 var levelManager = {
@@ -68,8 +68,8 @@ function distance(pos1, pos2) {
     return Math.sqrt((dx * dx) + (dy * dy));
 }
 
-function DrawText(text, x, y, fontSize) {
-    ctx.fillStyle = 'white';
+function DrawText(text, x, y, fontSize, color) {
+    ctx.fillStyle = (color == undefined) ? 'white' : color;
     var size = (fontSize == undefined) ? 40 : fontSize;
     ctx.font = size + 'px Exo';
     ctx.textAlign = 'center';
