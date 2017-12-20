@@ -12,8 +12,8 @@ var resetPrompt = "\'r\' to reset...";
 var gameSpeed = 1;
 var player;
 var gravity = 0;
-var maxGravity = 3;
-var gravityAcceleration = 0.01;
+var maxGravity = 2.8;
+var gravityAcceleration = 0.008;
 var gravityOn = true;
 var levelManager = {
     current: undefined,
@@ -32,7 +32,7 @@ function ClearTimeouts() {
 }
 
 function RotateWorld(direction) {
-    var delay = 3;
+    var delay = 1.75;
     
     if (direction == "left") {
         gravityOn = false;
@@ -44,7 +44,7 @@ function RotateWorld(direction) {
         timeOuts.push(setTimeout(function () {
             player.RotateDirection(-1);
             gravityOn = true;
-        }, 90 * delay));
+        }, 95 * delay));
     }
     
     if (direction == "right") {
@@ -57,7 +57,7 @@ function RotateWorld(direction) {
         timeOuts.push(setTimeout(function () {
             player.RotateDirection(1);
             gravityOn = true;
-        }, 90 * delay));
+        }, 95 * delay));
     }
 }
 

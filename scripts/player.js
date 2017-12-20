@@ -44,12 +44,7 @@ Player.prototype.HandleCollision = function(sprites) {
                 self.sprite.y = self.oldPos.y;
             }
             
-            if (self.gravity >= maxGravity * 0.25) {
-                self.gravity *= -0.1;
-            }
-            else {
-                self.gravity = -gravityAcceleration * gameSpeed;
-            }
+            self.gravity = -gravityAcceleration * gameSpeed;
         }
     });
 };

@@ -75,8 +75,8 @@ canvas {
 .menued {
     background: none;
     background-color: white;
-    filter: blur(2px) brightness(150%);
-    animation: fadeInMenu 5s ease-out;
+    filter: blur(3px) brightness(150%);
+    animation: fadeInMenu 4s ease-out;
 }
 
 @keyframes fadeInMenu {
@@ -84,7 +84,7 @@ canvas {
         filter: blur(10px) brightness(300%);
     }
     100% {
-        filter: blur(2px) brightness(150%);
+        filter: blur(3px) brightness(150%);
     }
 }
 
@@ -94,6 +94,13 @@ canvas {
     background-color: white;
     transform: scale(4);
     filter: blur(30px) brightness(5000%);
+}
+
+.stopped-black {
+    animation: none;
+    background: none;
+    background-color: white;
+    filter: blur(160px) brightness(2000%);
 }
 
 .grayscaled {

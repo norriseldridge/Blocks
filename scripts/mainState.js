@@ -9,6 +9,10 @@ MainState.Initialize = function () {
     SetNextLevel(testLevel);
     this.level = levelManager.current;
     this.level.Initialize();
+    
+    FadeBlackShake(function () {
+        
+    });
 };
 
 MainState.CleanUp = function () {

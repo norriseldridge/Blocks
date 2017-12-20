@@ -196,6 +196,16 @@ function FadeWhiteShake(callback, param) {
     }, 500);
 }
 
+function FadeBlackShake(callback, param) {
+    canvas.classList.remove('grayscaled');
+    canvas.classList.add('stopped-black');
+    Camera.Shake(2, 50);
+    setTimeout(function () {
+        callback(param);
+        canvas.classList.remove('stopped-black');
+    }, 500);
+}
+
 function CleanUpLevel(level) {
     // remove all the tiles
     ClearTimeouts();
