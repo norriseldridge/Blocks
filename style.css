@@ -11,6 +11,8 @@ body {
     margin: 0;
     height: 100vh;
     width: 100vw;
+    display: flex;
+    justify-content: center;
 }
 
 h1 {
@@ -24,8 +26,8 @@ h1 {
 .gameContainer {
     padding: 0;
     margin: 0;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
 }
 
 .controls {
@@ -75,8 +77,8 @@ canvas {
 .menued {
     background: none;
     background-color: white;
-    filter: blur(3px) brightness(150%);
-    animation: fadeInMenu 4s ease-out;
+    filter: blur(0px) brightness(100%);
+    animation: fadeInMenu 2s ease-out;
 }
 
 @keyframes fadeInMenu {
@@ -84,7 +86,7 @@ canvas {
         filter: blur(10px) brightness(300%);
     }
     100% {
-        filter: blur(3px) brightness(150%);
+        filter: blur(0px) brightness(100%);
     }
 }
 
@@ -93,7 +95,7 @@ canvas {
     background: none;
     background-color: white;
     transform: scale(4);
-    filter: blur(30px) brightness(5000%);
+    filter: blur(30px) brightness(3000%);
 }
 
 .stopped-black {

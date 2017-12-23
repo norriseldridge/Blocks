@@ -1,6 +1,6 @@
 var MenuState = new State();
 MenuState.Initialize = function () {
-    
+    canvas.classList.add('menued'); // blur
 };
 
 MenuState.Update = function () {
@@ -12,10 +12,11 @@ MenuState.Update = function () {
     // accept input
     if (input[" "]) {
         canvas.classList.remove('menued'); // unblur
+        canvas.classList.add('stopped');
         Machine.SetState(MainState);
     }
 };
 
 MenuState.CleanUp = function () {
-    
+    canvas.classList.remove('stopped');
 };

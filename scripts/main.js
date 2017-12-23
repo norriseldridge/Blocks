@@ -6,7 +6,7 @@ function OnLoad() {
     canvas.addEventListener("touchend", handleTouch, false);
     
     // set the current state
-    Machine.SetState(MenuState);
+    Machine.SetState(SplashState);
     
     // start the main game loop
     setInterval(Sync, fps / 1000);
