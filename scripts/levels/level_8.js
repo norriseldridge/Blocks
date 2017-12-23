@@ -2,7 +2,7 @@ var level8 = new Level();
 
 level8.Initialize = function () {
     // set next level
-    this.nextLevel = level1;
+    this.nextLevel = level9;
     
     // position player
     player.sprite.x = 0;

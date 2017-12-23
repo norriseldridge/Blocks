@@ -14,10 +14,17 @@ Switch.prototype.Update = function() {
     if (this.active)
         return;
     
-    if (distance(player.sprite.x, this.sprite.x, player.sprite.y, this.sprite.y) < 20) {
+    this.sprite.rotation += 0.01;
+    
+    var dist = distance(
+        {x: player.sprite.x,
+         y: player.sprite.y}, 
+        {x: this.sprite.x, 
+         y: this.sprite.y});
+    if (dist < 20) {
         this.active = true;
         
-        this.sprite.width *= -1; // flip the switch visually
+        this.sprite.alpha = 0.5;
         
         if (this.target != undefined) {
             this.target.alpha = 0;
