@@ -10,7 +10,7 @@ SplashState.Initialize = function () {
 SplashState.Update = function () {
     // draw nothing
     ctx.clearRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = 'white';
+    ctx.fillStyle = 'black';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     
     // fade in splash logo
@@ -34,7 +34,7 @@ SplashState.Update = function () {
     }
     
     // move on
-    if (this.time > 1000) {
+    if (this.time > 1200) {
         Machine.SetState(MenuState);
     }
     this.time++;

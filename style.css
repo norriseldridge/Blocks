@@ -26,8 +26,8 @@ h1 {
 .gameContainer {
     padding: 0;
     margin: 0;
-    width: 100vw;
-    height: 100vh;
+    width: 900px;
+    height: 480px;
 }
 
 .controls {
@@ -49,11 +49,11 @@ h1 {
 }
 
 canvas {
-    height: 100%;
+    width: 100%;
     margin: auto;
     cursor: none;
     background: radial-gradient(rgba(120, 120, 120, 0.5), rgba(60, 60, 60, 0.6), rgba(0, 0, 0, 0.85));
-    animation: rotateBackground 20s infinite ease-out;
+    animation: rotateBackground 10s infinite ease-out;
     transition: all 2s ease;
 }
 
@@ -77,16 +77,16 @@ canvas {
 .menued {
     background: none;
     background-color: white;
-    filter: blur(0px) brightness(100%);
-    animation: fadeInMenu 2s ease-out;
+    filter: blur(2px) brightness(180%);
+    animation: fadeInMenu 3s ease-out;
 }
 
 @keyframes fadeInMenu {
     0% {
-        filter: blur(10px) brightness(300%);
+        filter: blur(200px) brightness(0%);
     }
     100% {
-        filter: blur(0px) brightness(100%);
+        filter: blur(2px) brightness(180%);
     }
 }
 

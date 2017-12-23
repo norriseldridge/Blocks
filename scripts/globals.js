@@ -19,6 +19,7 @@ var levelManager = {
     current: undefined,
     newLevel: false
 };
+var music = new Audio("assets/music/weird.mp3");
 
 function SetNextLevel(level) {
     levelManager.current = Object.assign({}, level);
