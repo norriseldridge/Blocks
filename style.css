@@ -108,3 +108,34 @@ canvas {
 .grayscaled {
     filter: grayscale(90%);
 }
+.button {
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+}
+
+.button.learnmore{
+	background:rgba(226, 111, 14, 0.64);	
+}
+
+.button.showcase{
+	background:#27538e;	
+}
+.button {
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+}
+
+.button:hover {
+    background-color: green;
+    color: white;
+}
+
+.button:active {
+    background-color: rgba(120, 120, 120, 0.5); /* Green */
+    color: white;
+}
